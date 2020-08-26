@@ -1,7 +1,7 @@
   // tslint:disable-next-line: semicolon
 
 export class OrderModel{
-
+  public orderId: number;
   public facebookAdminName: string;
   public orderDate: Date;
   public deliveryName: string;
