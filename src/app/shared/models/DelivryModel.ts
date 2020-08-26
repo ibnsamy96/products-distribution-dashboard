@@ -11,7 +11,9 @@ export class DelivryModel {
     count: number,
     ids: number[]
   }
-
+   // login :{
+  //   username: string;
+  // }
 }
 
 
