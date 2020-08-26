@@ -17,6 +17,7 @@ import { ItemStockComponent } from './stock/item-stock/item-stock.component';
 import { AddOrderComponent } from './orders/add-order/add-order.component';
 import { AddItemStockComponent } from './stock/add-item-stock/add-item-stock.component';
 import { OrderViewComponent } from './home-page/order-view/order-view.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { OrderViewComponent } from './home-page/order-view/order-view.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
