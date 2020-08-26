@@ -20,6 +20,8 @@ import { OrderViewComponent } from './home-page/order-view/order-view.component'
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OrderSearchComponent } from './home-page/order-search/order-search.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { OrderSearchComponent } from './home-page/order-search/order-search.comp
     AddOrderComponent,
     AddItemStockComponent,
     OrderViewComponent,
-    OrderSearchComponent
+    OrderSearchComponent,
+    EmployeeProfileComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,
