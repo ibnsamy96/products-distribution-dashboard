@@ -8,5 +8,5 @@ import { faAsterisk } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'Products-Distribution-Dashboard';
-  faStackComponent = faAsterisk;
+  // faStackComponent = faAsterisk;
 }
