@@ -19,6 +19,7 @@ import { AddItemStockComponent } from './stock/add-item-stock/add-item-stock.com
 import { OrderViewComponent } from './home-page/order-view/order-view.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { OrderSearchComponent } from './home-page/order-search/order-search.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ItemStockComponent,
     AddOrderComponent,
     AddItemStockComponent,
-    OrderViewComponent
+    OrderViewComponent,
+    OrderSearchComponent
   ],
   imports: [
     BrowserModule,
