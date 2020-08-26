@@ -1,6 +1,6 @@
-  // tslint:disable-next-line: semicolon
+// tslint:disable-next-line: semicolon
 
-export class OrderModel{
+export class OrderModel {
   public orderId: number;
   public facebookAdminName: string;
   public orderDate: Date;
@@ -11,15 +11,14 @@ export class OrderModel{
   public clientName: string;
   public clientPhoneNumber: number;
   // tslint:disable-next-line: align
- public address: {
-   region: string,
-   addressInDetails: string
-
- };
- public orderState:{
-   onDelivry: boolean,
-   delvired: boolean,
-  rejected: boolean
+  public address: {
+    region: string;
+    addressInDetails: string;
   };
-
+  public orderState: {
+    onDelivry: boolean;
+    delvired: boolean;
+    rejected: boolean;
+  };
 }
+
