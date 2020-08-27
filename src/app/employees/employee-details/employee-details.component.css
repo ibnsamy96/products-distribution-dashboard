@@ -1,9 +1,13 @@
 /* employees details styling */
 .all-orders-table{
-  margin-right: -1%;
+  /* margin-right: -1%; */
   }
 .table-dark-custom{
  /* background-color:#0d0f16 !important; */
  background-color:#1a1c1f !important;
 
+}
+
+td{
+  font-size: 18px;
 }
