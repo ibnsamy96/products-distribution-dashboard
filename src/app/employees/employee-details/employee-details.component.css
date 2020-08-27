@@ -11,3 +11,9 @@
 td{
   font-size: 18px;
 }
+td > button {
+  font-size:16px !important;
+  padding: 10px 15px;
+  font-weight: 300;
+
+}
