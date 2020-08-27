@@ -4,3 +4,7 @@
 .ltr{
   direction: ltr !important;
 }
+
+bg-color-custom{
+  background-color: #454d55;
+}
