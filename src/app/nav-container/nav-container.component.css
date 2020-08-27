@@ -1,0 +1,15 @@
+#logo{
+  width:30%;
+  margin: -15px;
+  margin-left: -10px;
+}
+
+.a {direction: rtl;}
+.text-white1{
+  color: rgb(228, 227, 227) !important;
+}
+.ab{
+  /* background-color:#0d0f16 !important; */
+  background-color:#1a1c1f !important;
+
+}
