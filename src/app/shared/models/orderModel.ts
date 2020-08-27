@@ -9,7 +9,8 @@ export class OrderModel {
   public itemCost: number;
   public delivryCost: number;
   public clientName: string;
-  public clientPhoneNumber: number;
+  public clientPhoneNumber1: number;
+  public clientPhoneNumber2: number;
   // tslint:disable-next-line: align
   public address: {
     region: string;

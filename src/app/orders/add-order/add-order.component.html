@@ -1,1 +1,59 @@
-<p>add-order works!</p>
+<div class="container mt-5">
+  <h1 class="text-center  "> add Order</h1>
+  <!-- TODO   be sure that facebook admin id taken by login token & data of order automatically  -->
+<form>
+  <div class="form-row">
+    <!--start  client data  -->
+    <div class="form-group col-md-6 font-weight-bold">
+      <label  for="clientName">Client name</label>
+      <input type="text" class="form-control" id="clientName">
+    </div>
+    <div class="form-group col-md-6"></div>
+    <div class="form-group col-md-6 font-weight-bold">
+      <label for="phoneNumber1">Phone Number :1</label>
+      <input type="number" class="form-control" id="phoneNumber1">
+    </div>
+    <div class="form-group col-md-6 font-weight-bold">
+      <label for="phoneNumber2">phone number :2</label>
+      <input type="number" class="form-control" id="phoneNumber2">
+    </div>
+    <div class="form-group col-md-6 font-weight-bold">
+      <label for="inputAddress">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+
+
+    <div class="form-group col-md-4 font-weight-bold">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <!-- TODO remember use eg.json to get all states here *in shared folder* -->
+        <option>...</option>
+      </select>
+    </div>
+     <!--end  client data  -->
+     <!--start  order data  -->
+
+    <div class="form-group col-md-6 font-weight-bold">
+      <label for="item">Item name</label>
+      <input type="text" class="form-control" required id="item">
+    </div>
+    <hr>
+    <div class="form-group col-md-6 font-weight-bold">
+      <label for="itemCost">Item cost</label>
+      <input type="text" class="form-control" id="itemCost">
+    </div>
+    <div class="form-group col-md-6 "></div>
+    <div class="form-group col-md-6 font-weight-bold">
+      <label for="deliveryCost">delivery cost</label>
+      <input type="text" class="form-control" id="deliveryCost">
+    </div>
+
+  </div>
+     <!--end  order data  -->
+
+
+
+  <button type="submit" class="btn btn-primary float-right">Sign in</button>
+</form>
+</div>
