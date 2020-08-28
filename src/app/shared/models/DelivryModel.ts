@@ -1,17 +1,17 @@
-export class DelivryModel {
-  public onDelivry: {
+export class DeliveryModel {
+  public onDelivery: {
     count: number,
     ids: number[]
-  }
-  public delivred: {
+  };
+  public delivered: {
     count: number,
     ids: number[]
-  }
+  };
   public rejected: {
     count: number,
     ids: number[]
-  }
-   // login :{
+  };
+  // login :{
   //   username: string;
   // }
 }
