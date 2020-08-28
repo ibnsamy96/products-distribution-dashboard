@@ -3,5 +3,4 @@ export class ItemModel {
   public itemCost: number;
   public itemNumber: number;
   public itemState: boolean;
-
 }
