@@ -7,7 +7,7 @@ export class OrderModel {
   public deliveryName: string;
   public itemName: string;
   public itemCost: number;
-  public delivryCost: number;
+  public deliveryCost: number;
   public clientName: string;
   public clientPhoneNumber1: number;
   public clientPhoneNumber2: number;
@@ -17,8 +17,8 @@ export class OrderModel {
     addressInDetails: string;
   };
   public orderState: {
-    onDelivry: boolean;
-    delvired: boolean;
+    onDelivery: boolean;
+    delivered: boolean;
     rejected: boolean;
   };
 }
