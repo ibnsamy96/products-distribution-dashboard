@@ -1,0 +1,13 @@
+.bord{
+  padding : 10px 15px ;
+  border: 0.25px solid #c0bfbfcb;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+legend{
+  font-weight: 700;
+  color:#5e72e4
+}

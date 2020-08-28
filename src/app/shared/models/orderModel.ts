@@ -1,25 +1,24 @@
-// tslint:disable-next-line: semicolon
-
 export class OrderModel {
-  public orderId: number;
-  public facebookAdminName: string;
-  public orderDate: Date;
-  public deliveryName: string;
-  public itemName: string;
-  public itemCost: number;
-  public delivryCost: number;
-  public clientName: string;
-  public clientPhoneNumber1: number;
-  public clientPhoneNumber2: number;
-  // tslint:disable-next-line: align
+  constructor(
+  public orderId: number,
+  public facebookAdminName: string,
+  public orderDate: Date,
+  public itemName: string,
+  public itemCost: number,
+  public deliveryCost: number,
+  public clientName: string,
+  public clientPhoneNumber1: number,
   public address: {
     region: string;
     addressInDetails: string;
-  };
-  public orderState: {
+  },
+  public clientPhoneNumber2 ?: number,
+  public orderState ?: {
     onDelivry: boolean;
     delvired: boolean;
     rejected: boolean;
-  };
+  } ,
+  public deliveryName ?: string
+  ){}
 }
 

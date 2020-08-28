@@ -13,7 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderComponent } from './orders/order/order.component';
 import { StockComponent } from './stock/stock.component';
-import { ItemStockComponent } from './stock/item-stock/item-stock.component';
+import { ItemStockComponent } from './stock/items-container/item-stock/item-stock.component';
 import { AddOrderComponent } from './orders/add-order/add-order.component';
 import { AddItemStockComponent } from './stock/add-item-stock/add-item-stock.component';
 import { OrderViewComponent } from './home-page/order-view/order-view.component';
@@ -22,6 +22,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OrderSearchComponent } from './home-page/order-search/order-search.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { ItemsContainerComponent } from './stock/items-container/items-container.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     OrderViewComponent,
     OrderSearchComponent,
     EmployeeProfileComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    ItemsContainerComponent
   ],
   imports: [
     BrowserModule,
