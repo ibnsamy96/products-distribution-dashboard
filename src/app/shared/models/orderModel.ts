@@ -1,8 +1,7 @@
 export class OrderModel {
   constructor(
-  public orderId: number,
   public facebookAdminName: string,
-  public orderDate: Date,
+  public orderDate,
   public itemName: string,
   public itemCost: number,
   public deliveryCost: number,
@@ -14,12 +13,14 @@ export class OrderModel {
   },
   public clientPhoneNumber2 ?: number,
   public orderState ?: {
-    onDelivry: boolean;
-    delvired: boolean;
+    onDelivery: boolean;
+    delivered: boolean;
 
     rejected: boolean;
   } ,
-  public deliveryName ?: string
+  public deliveryName ?: string,
+  public orderId ?: number,
+
   ){}
 }
 

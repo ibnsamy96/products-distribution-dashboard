@@ -24,8 +24,9 @@ export class OrdersService {
 
   postNewOrder(order: OrderModel): Observable<any> {
     // this function works well -> but it doesn't take the right data
-    const order2 = {
-
+    const order2: OrderModel = {
+      // انا زودت الداتا تايب و غيرت حبهفي الاوردر موديل واظن كده احسن
+      // this service file should be in shared folder brazer
       facebookAdminName: 'ahmed',
       orderDate: Date.now(),
       deliveryName: 'nader',
