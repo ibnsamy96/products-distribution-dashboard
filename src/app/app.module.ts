@@ -24,6 +24,7 @@ import { OrderSearchComponent } from './home-page/order-search/order-search.comp
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ItemsContainerComponent } from './stock/items-container/items-container.component';
+import { TemporaryComponentComponent } from './temporary-component/temporary-component.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ItemsContainerComponent } from './stock/items-container/items-container
     OrderSearchComponent,
     EmployeeProfileComponent,
     AddEmployeeComponent,
-    ItemsContainerComponent
+    ItemsContainerComponent,
+    TemporaryComponentComponent
   ],
   imports: [
     BrowserModule,
