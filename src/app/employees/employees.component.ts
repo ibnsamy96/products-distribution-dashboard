@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-employees',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeesComponent implements OnInit {
 
-  constructor() { }
+  jobType: string;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.jobType= this.route.snapshot.params['job'];
+    this.route.params.subscribe(
+      (params:Params)=>{
+        this.jobType=params["job"]
+      }
+
+    );
+
   }
 
 }

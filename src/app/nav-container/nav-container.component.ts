@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-container.component.css']
 })
 export class NavContainerComponent implements OnInit {
-
+  id:number=5
   constructor() { }
 
   ngOnInit(): void {

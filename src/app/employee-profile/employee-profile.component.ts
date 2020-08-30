@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-employee-profile',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:ActivatedRoute) { }
+  id:number;
 
   ngOnInit(): void {
+    this.id=this.route.snapshot.params['employeeId']
   }
 
 }
