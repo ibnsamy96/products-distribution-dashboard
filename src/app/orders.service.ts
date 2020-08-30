@@ -18,64 +18,45 @@ Dear Rafaat, Don't touch that file عشان أنا لسه بعدّل فيه و �
 export class OrdersService {
 
   API_DOMAIN = 'https://awfarlak-dashboard.firebaseio.com';
-  // API_END_POINTS = { order: 'order' };
+  API_END_POINTS: 'orders' | 'employees';
+
 
   constructor(private http: HttpClient) { }
 
-  postNewOrder(order: OrderModel): Observable<any> {
-    // this function works well -> but it doesn't take the right data
-    const order2: OrderModel = {
-      // انا زودت الداتا تايب و غيرت حبهفي الاوردر موديل واظن كده احسن
-      // this service file should be in shared folder brazer
-      facebookAdminName: 'ahmed',
-      orderDate: Date.now(),
-      deliveryName: 'nader',
-      itemName: 'كوتشي',
-      itemCost: 55,
-      deliveryCost: 20,
-      clientName: 'Ahmed Moh',
-      clientPhoneNumber1: 10191111816,
-      clientPhoneNumber2: 10191111816,
-      address: {
-        region: 'Tanta',
-        addressInDetails: 'Share3 kaza',
-      },
-      orderState: {
-        onDelivery: true,
-        delivered: false,
-        rejected: false,
-      },
-    };
-    return this.http.post(this.API_DOMAIN + '/orders.json', order2);
+  postNewOrder(order: OrderModel, API_END_POINT: 'orders' | 'employees'): Observable<any> {
+
+    return this.http.post(`${this.API_DOMAIN}/${API_END_POINT}.json`, order);
   }
 
-  getAllOrders(): Observable<any> {
+  getAllOrders(API_END_POINT: 'orders' | 'employees'): Observable<any> {
 
-    return this.http.get('https://barq-api.azurewebsites.net/api/orders').pipe(
+    return this.http.get(`${this.API_DOMAIN}/${API_END_POINT}.json`).pipe(
       map((ordersStream: OrderModel[]) => {
+
+        // console.log(ordersStream);
+
         const ordersArray = [];
         // tslint:disable-next-line: forin
         for (const id in ordersStream) {
-          ordersArray.push({ ...ordersStream[id] });
+          ordersArray.push({ id, ...ordersStream[id] });
         }
         return ordersArray;
       }));
   }
 
-  getOrderByID(orderID: string): Observable<any> {
+  getOrderByID(orderID: string, API_END_POINT: 'orders' | 'employees'): Observable<any> {
     const orderAPI = 'https://barq-api.azurewebsites.net/api/orders/' + orderID;
     return this.http.get<OrderModel>(orderAPI);
   }
 
 
-  updateOrderByID(orderID: string, order: OrderModel): Observable<any> {
+  updateOrderByID(orderID: string, order: OrderModel, API_END_POINT: 'orders' | 'employees'): Observable<any> {
     const orderAPI = 'https://barq-api.azurewebsites.net/api/orders/' + orderID;
     return this.http.put(orderAPI, order);
   }
 
-  deleteOrderByID(orderID: string): Observable<any> {
-    const orderAPI = 'https://barq-api.azurewebsites.net/api/orders/' + orderID;
-    return this.http.delete(orderAPI);
+  deleteOrderByID(orderID: string, API_END_POINT: 'orders' | 'employees'): Observable<any> {
+    return this.http.delete(`${this.API_DOMAIN}/${API_END_POINT}/${orderID}.json`);
   }
 
 
