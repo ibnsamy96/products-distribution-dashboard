@@ -11,12 +11,13 @@ import { OrderComponent } from './orders/order/order.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'home', component: HomePageComponent },
-  { path: "employees/:job", component: EmployeesComponent },
-  { path: "addEmployee", component: AddEmployeeComponent },
-  { path: "login", component: LoginComponent },
-  { path: "addOrder", component: AddOrderComponent },
-  { path: "profile/:jobType/:employeeId", component: EmployeeProfileComponent },
-  { path: 'order/:orderId', component: OrderComponent }
+  { path: 'employees/:job', component: EmployeesComponent },
+  { path: 'addEmployee', component: AddEmployeeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'addOrder', component: AddOrderComponent },
+  { path: 'profile/:jobType/:employeeId', component: EmployeeProfileComponent },
+  { path: 'order/:orderId', component: OrderComponent },
+  { path: '**', component: HomePageComponent }
 
 
 
