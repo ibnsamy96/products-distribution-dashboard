@@ -22,7 +22,9 @@ export class TemporaryComponentComponent implements OnInit {
 
 
   addData(): void {
+
     const order = {
+      isCounted: false,
       facebookAdminName: 'ahmed',
       orderDate: Date.now(),
       deliveryName: 'nader',

@@ -1,29 +1,27 @@
-export class OrderModel {
+export interface OrderModel {
+  id?: string;
   // الجاي بيمثّل هل الأوردر اتحاسب عليه الموزع أو لأ
-  public isCounted: boolean; //الأساسي بتاعها إنها false و لما يتعمل تصفير تبقى true
-  constructor(
-    public facebookAdminName: string,
-    public orderDate,
-    public itemName: string,
-    public itemCost: number,
-    public deliveryCost: number,
-    public clientName: string,
-    public clientPhoneNumber1: number,
-    public address: {
-      region: string;
-      addressInDetails: string;
-    },
-    public clientPhoneNumber2?: number,
-    public orderState?: {
-      onDelivery: boolean;
-      delivered: boolean;
+  isCounted: boolean; // الأساسي بتاعها إنها false و لما يتعمل تصفير تبقى true
+  facebookAdminName: string;
+  orderDate: number;
+  itemName: string;
+  itemCost: number;
+  deliveryCost: number;
+  clientName: string;
+  clientPhoneNumber1: number;
+  address: {
+    region: string;
+    addressInDetails: string;
+  };
+  clientPhoneNumber2?: number;
+  orderState?: {
+    onDelivery: boolean;
+    delivered: boolean;
 
-      rejected: boolean;
-    },
-    public deliveryName?: string,
-    public orderId?: number,
-
-  ) { }
+    rejected: boolean;
+  };
+  deliveryName?: string;
+  orderId?: number;
 }
 
 

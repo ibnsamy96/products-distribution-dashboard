@@ -25,20 +25,20 @@ export class OrdersService {
 
   postNewOrder(order: OrderModel, API_END_POINT: 'orders' | 'employees'): Observable<any> {
 
-    return this.http.post(`${this.API_DOMAIN}/${API_END_POINT}.json`, order);
+    return this.http.post<{ name: string }>(`${this.API_DOMAIN}/${API_END_POINT}.json`, order);
   }
 
   getAllOrders(API_END_POINT: 'orders' | 'employees'): Observable<any> {
 
-    return this.http.get(`${this.API_DOMAIN}/${API_END_POINT}.json`).pipe(
-      map((ordersStream: OrderModel[]) => {
+    return this.http.get<{ [key: string]: OrderModel }>(`${this.API_DOMAIN}/${API_END_POINT}.json`).pipe(
+      map((ordersStream) => {
 
         // console.log(ordersStream);
 
-        const ordersArray = [];
+        const ordersArray: OrderModel[] = [];
         // tslint:disable-next-line: forin
-        for (const id in ordersStream) {
-          ordersArray.push({ id, ...ordersStream[id] });
+        for (const key in ordersStream) {
+          ordersArray.push({ ...ordersStream[key], id: key });
         }
         return ordersArray;
       }));
