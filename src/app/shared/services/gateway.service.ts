@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Order } from './shared/models/order.model';
 import { HttpClient } from '@angular/common/http';
+import { Order } from '../models/order.model';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 
 /*
 
-Dear Rafaat, Don't touch that file عشان أنا لسه بعدّل فيه و مش عايز أنسى بس اللي عاملُه
+This file takes data and connect to api.
 
 */
 
@@ -15,18 +15,25 @@ Dear Rafaat, Don't touch that file عشان أنا لسه بعدّل فيه و �
 @Injectable({
   providedIn: 'root'
 })
-export class OrdersService {
+
+export class GatewayService {
 
   API_DOMAIN = 'https://awfarlak-dashboard.firebaseio.com';
-  API_END_POINTS: 'orders' | 'employees';
+
+  API_END_POINTS = { orders: 'orders', employees: 'employees' };
 
 
   constructor(private http: HttpClient) { }
 
-  postNewOrder(order: Order, API_END_POINT: 'orders' | 'employees'): Observable<any> {
+  postNewOrder(data: any, END_POINT_REF: 'orders' | 'employees'): Observable<any> {
 
-    return this.http.post<{ name: string }>(`${this.API_DOMAIN}/${API_END_POINT}.json`, order);
+    return this.http.post<{ name: string }>(`${this.API_DOMAIN}/${this.API_END_POINTS[END_POINT_REF]}.json`, data);
+
   }
+
+
+
+
 
   getAllOrders(API_END_POINT: 'orders' | 'employees'): Observable<any> {
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdersService } from '../orders.service';
+import { OrdersService } from '../shared/services/gateway.service';
 
 
 @Component({
