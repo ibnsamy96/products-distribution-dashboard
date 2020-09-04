@@ -20,12 +20,19 @@ export class GatewayService {
 
   API_DOMAIN = 'https://awfarlak-dashboard.firebaseio.com';
 
-  API_END_POINTS = { orders: 'orders', employees: 'employees' };
+  API_END_POINTS = {
+    orders: 'orders',
+    employees: 'employees',
+    deliveryMan: 'delivery-men'
+  };
 
 
   constructor(private http: HttpClient) { }
 
-  postNewOrder(data: any, END_POINT_REF: 'orders' | 'employees'): Observable<any> {
+  postNew(
+    data: any,
+    END_POINT_REF: 'orders' | 'employees' | 'deliveryMan'
+  ): Observable<any> {
 
     return this.http.post<{ name: string }>(`${this.API_DOMAIN}/${this.API_END_POINTS[END_POINT_REF]}.json`, data);
 
@@ -35,7 +42,7 @@ export class GatewayService {
 
 
 
-  getAllOrders(API_END_POINT: 'orders' | 'employees'): Observable<any> {
+  getAll(API_END_POINT: 'orders' | 'employees'): Observable<any> {
 
     return this.http.get<{ [key: string]: Order }>(`${this.API_DOMAIN}/${API_END_POINT}.json`).pipe(
       map((ordersStream) => {
@@ -51,18 +58,18 @@ export class GatewayService {
       }));
   }
 
-  getOrderByID(orderID: string, API_END_POINT: 'orders' | 'employees'): Observable<any> {
+  getByID(orderID: string, API_END_POINT: 'orders' | 'employees'): Observable<any> {
     const orderAPI = 'https://barq-api.azurewebsites.net/api/orders/' + orderID;
     return this.http.get<Order>(orderAPI);
   }
 
 
-  updateOrderByID(orderID: string, order: Order, API_END_POINT: 'orders' | 'employees'): Observable<any> {
+  updateByID(orderID: string, order: Order, API_END_POINT: 'orders' | 'employees'): Observable<any> {
     const orderAPI = 'https://barq-api.azurewebsites.net/api/orders/' + orderID;
     return this.http.put(orderAPI, order);
   }
 
-  deleteOrderByID(orderID: string, API_END_POINT: 'orders' | 'employees'): Observable<any> {
+  deleteByID(orderID: string, API_END_POINT: 'orders' | 'employees'): Observable<any> {
     return this.http.delete(`${this.API_DOMAIN}/${API_END_POINT}/${orderID}.json`);
   }
 

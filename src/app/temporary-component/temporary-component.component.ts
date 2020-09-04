@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdersService } from '../shared/services/gateway.service';
+import { GatewayService } from '../shared/services/gateway.service';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { OrdersService } from '../shared/services/gateway.service';
 })
 export class TemporaryComponentComponent implements OnInit {
 
-  constructor(private ordersService: OrdersService) { }
+  constructor(private ordersService: GatewayService) { }
 
   ngOnInit(): void {
 
