@@ -1,4 +1,4 @@
-export interface OrderModel {
+export interface Order {
   id?: string;
   // الجاي بيمثّل هل الأوردر اتحاسب عليه الموزع أو لأ
   isCounted: boolean; // الأساسي بتاعها إنها false و لما يتعمل تصفير تبقى true

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ItemModel } from './../../../shared/models/ItemModel';
+import { Product } from '../../../shared/models/product-model';
 
 @Component({
   selector: 'app-item-stock',
@@ -9,8 +9,8 @@ import { ItemModel } from './../../../shared/models/ItemModel';
 export class ItemStockComponent implements OnInit {
 
   constructor() { }
-// @Input() item: ItemModel;
-@Input() item;
+  // @Input() item: ItemModel;
+  @Input() item;
   ngOnInit(): void {
   }
 

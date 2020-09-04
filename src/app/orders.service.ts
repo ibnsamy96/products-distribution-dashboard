@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { OrderModel } from './shared/models/orderModel';
+import { Order } from './shared/models/order.model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -23,19 +23,19 @@ export class OrdersService {
 
   constructor(private http: HttpClient) { }
 
-  postNewOrder(order: OrderModel, API_END_POINT: 'orders' | 'employees'): Observable<any> {
+  postNewOrder(order: Order, API_END_POINT: 'orders' | 'employees'): Observable<any> {
 
     return this.http.post<{ name: string }>(`${this.API_DOMAIN}/${API_END_POINT}.json`, order);
   }
 
   getAllOrders(API_END_POINT: 'orders' | 'employees'): Observable<any> {
 
-    return this.http.get<{ [key: string]: OrderModel }>(`${this.API_DOMAIN}/${API_END_POINT}.json`).pipe(
+    return this.http.get<{ [key: string]: Order }>(`${this.API_DOMAIN}/${API_END_POINT}.json`).pipe(
       map((ordersStream) => {
 
         // console.log(ordersStream);
 
-        const ordersArray: OrderModel[] = [];
+        const ordersArray: Order[] = [];
         // tslint:disable-next-line: forin
         for (const key in ordersStream) {
           ordersArray.push({ ...ordersStream[key], id: key });
@@ -46,11 +46,11 @@ export class OrdersService {
 
   getOrderByID(orderID: string, API_END_POINT: 'orders' | 'employees'): Observable<any> {
     const orderAPI = 'https://barq-api.azurewebsites.net/api/orders/' + orderID;
-    return this.http.get<OrderModel>(orderAPI);
+    return this.http.get<Order>(orderAPI);
   }
 
 
-  updateOrderByID(orderID: string, order: OrderModel, API_END_POINT: 'orders' | 'employees'): Observable<any> {
+  updateOrderByID(orderID: string, order: Order, API_END_POINT: 'orders' | 'employees'): Observable<any> {
     const orderAPI = 'https://barq-api.azurewebsites.net/api/orders/' + orderID;
     return this.http.put(orderAPI, order);
   }

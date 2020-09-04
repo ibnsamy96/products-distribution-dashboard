@@ -1,9 +1,9 @@
-export class ItemModel {
-  public itemName: string;
-  public itemCost?: number;
-  public itemAmount?: number;
-  public itemState?: boolean;
-
+export interface Product {
+  id?: string;
+  name: string;
+  itemCost?: number;
+  itemAmount?: number;
+  itemState?: boolean;
 
 }
 

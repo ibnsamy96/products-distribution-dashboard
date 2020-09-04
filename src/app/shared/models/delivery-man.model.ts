@@ -1,14 +1,14 @@
-export class DeliveryModel {
-  public name: string; // زود باقي البيانات للموزع
-  public onDeliveryOrders: {
+export interface DeliveryMan {
+  name: string; // زود باقي البيانات للموزع
+  onDeliveryOrders: {
     count: number,
     orders: { id: string, isCounted: boolean }[]
   };
-  public deliveredOrders: {
+  deliveredOrders: {
     count: number,
     orders: { id: string, isCounted: boolean }[]
   };
-  public rejectedOrders: {
+  rejectedOrders: {
     count: number,
     orders: { id: string, isCounted: boolean }[]
   };
