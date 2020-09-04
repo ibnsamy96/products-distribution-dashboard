@@ -1,16 +1,18 @@
 export interface DeliveryMan {
-  name: string; // زود باقي البيانات للموزع
-  onDeliveryOrders: {
+  id: string;
+  name: string;
+  phoneNumber: number;
+  onDeliveryOrders?: {
     count: number,
-    orders: { id: string, isCounted: boolean }[]
+    history: { orderID: string, isCounted: boolean }[]
   };
-  deliveredOrders: {
+  deliveredOrders?: {
     count: number,
-    orders: { id: string, isCounted: boolean }[]
+    history: { orderID: string, isCounted: boolean }[]
   };
-  rejectedOrders: {
+  rejectedOrders?: {
     count: number,
-    orders: { id: string, isCounted: boolean }[]
+    history: { orderID: string, isCounted: boolean }[]
   };
   // login :{
   //   username: string;

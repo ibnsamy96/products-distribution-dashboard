@@ -1,27 +1,35 @@
 export interface Order {
   id?: string;
-  // الجاي بيمثّل هل الأوردر اتحاسب عليه الموزع أو لأ
-  isCounted: boolean; // الأساسي بتاعها إنها false و لما يتعمل تصفير تبقى true
-  facebookAdminName: string;
-  orderDate: number;
-  itemName: string;
-  itemCost: number;
-  deliveryCost: number;
-  clientName: string;
-  clientPhoneNumber1: number;
-  address: {
-    region: string;
-    addressInDetails: string;
+
+  client: {
+    name: string;
+    phoneNumber1: number;
+    phoneNumber2: number;
+    address: {
+      region: string;
+      addressInDetails: string;
+    };
   };
-  clientPhoneNumber2?: number;
+
+  product: {
+    id: string;
+    name: string;
+    price: number;
+  };
+
+  orderDate: number; // تاريخ إضافة الأوردر
+  deliveryCost: number;
+
   orderState?: {
     onDelivery: boolean;
     delivered: boolean;
-
     rejected: boolean;
   };
-  deliveryName?: string;
-  orderId?: number;
+
+  // الجاي بيمثّل هل الأوردر اتحاسب عليه الموزع أو لأ
+  isCounted: boolean; // الأساسي بتاعها إنها false و لما يتعمل تصفير تبقى true
+  facebookAdminName: { id: string, name: string }; // الراجل اللي ضاف الأوردر دا;
+  deliveryManName: { id: string, name: string }; // الراجل اللي بيوزع الأوردر دا;
 }
 
 

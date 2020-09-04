@@ -1,9 +1,9 @@
 export interface Product {
   id?: string;
   name: string;
-  itemCost?: number;
-  itemAmount?: number;
-  itemState?: boolean;
+  price?: number;
+  amountInStore?: number;
+  isAvailable?: boolean;
 
 }
 

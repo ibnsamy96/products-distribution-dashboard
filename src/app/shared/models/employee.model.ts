@@ -1,7 +1,9 @@
 export interface Employee {
 
+  id?: string;
   name: string;
-  role: 'fb-admin' | 'delivery-man' | 'system-admin';
-
+  role: 'facebook-admin' | 'delivery-man' | 'system-admin';
+  password: string;
+  phoneNumber: number;
 
 }
