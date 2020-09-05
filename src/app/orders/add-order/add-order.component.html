@@ -1,59 +1,150 @@
-<div class="container mt-5 mb-8">
-  <h1 class="text-center  "> add Order</h1>
+<div class="container mt-5 mb-8 text-right">
+  <h1 class="text-center" style="font-size: 30px">إضافة طلب</h1>
   <!-- TODO   be sure that facebook admin id taken by login token & data of order automatically  -->
-<form>
-  <div class="form-row">
-    <!--start  client data  -->
-    <div class="form-group col-md-6 font-weight-bold">
-      <label  for="clientName">Client name</label>
-      <input type="text" class="form-control" id="clientName">
-    </div>
-    <div class="form-group col-md-6"></div>
-    <div class="form-group col-md-6 font-weight-bold">
-      <label for="phoneNumber1">Phone Number :1</label>
-      <input type="number" class="form-control" id="phoneNumber1">
-    </div>
-    <div class="form-group col-md-6 font-weight-bold">
-      <label for="phoneNumber2">phone number :2</label>
-      <input type="number" class="form-control" id="phoneNumber2">
-    </div>
-    <div class="form-group col-md-6 font-weight-bold">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-    </div>
+  <form #newOrderForm="ngForm" (ngSubmit)="submitNewOrder(newOrderForm)">
+    <div class="form-row rtl">
+      <!--start  client data  -->
+      <div class="form-group col-md-12 font-weight-bold">
+        <label for="clientName">اسم العميل</label>
+        <input
+          required
+          ngForm
+          name="clientName"
+          type="text"
+          class="form-control"
+          id="clientName"
+        />
+      </div>
 
+      <div class="form-group col-md-6 font-weight-bold">
+        <label for="phoneNumber1">رقم الموبايل 1</label>
+        <input
+          required
+          ngForm
+          name="phoneNumber1"
+          type="number"
+          class="form-control"
+          id="phoneNumber1"
+          placeholder="0123456789"
+        />
+      </div>
+      <div class="form-group col-md-6 font-weight-bold">
+        <label for="phoneNumber2">رقم الموبايل 2</label>
+        <input
+          required
+          ngForm
+          type="number"
+          name="phoneNumber2"
+          class="form-control"
+          id="phoneNumber2"
+          placeholder="0123456789"
+        />
+      </div>
+      <div class="form-group col-md-6 font-weight-bold">
+        <label for="address">العنوان بالتفصيل</label>
+        <input
+          ngForm
+          required
+          type="text"
+          class="form-control"
+          id="address"
+          name="address"
+          placeholder="شقة 10 الدور العاشر عمارة كذا شارع كذا"
+        />
+      </div>
 
-    <div class="form-group col-md-6 font-weight-bold">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <!-- TODO remember use eg.json to get all states here *in shared folder* -->
-        <option>...</option>
-      </select>
+      <div class="form-group col-md-6 font-weight-bold">
+        <label for="governance">المحافظة</label>
+        <select name="governance" required id="governance" class="form-control">
+          <option selected>اختار المحافظة ...</option>
+          <!-- TODO remember use eg.json to get all states here *in shared folder* -->
+          <option value="الغربية">الغربية</option>
+          <option value="الجيزة">الجيزة</option>
+          <option value="الإسماعيلية">الإسماعيلية</option>
+          <option value="كفر الشيخ">كفر الشيخ</option>
+          <option value="مطروح">مطروح</option>
+          <option value="المنيا">المنيا</option>
+          <option value="المنوفية">المنوفية</option>
+          <option value="الوادي الجديد">الوادي الجديد</option>
+          <option value="شمال سيناء">شمال سيناء</option>
+          <option value="بورسعيد">بورسعيد</option>
+          <option value="القليوبية">القليوبية</option>
+          <option value="قنا">قنا</option>
+          <option value="البحر الأحمر">البحر الأحمر</option>
+          <option value="الشرقية">الشرقية</option>
+          <option value="سوهاج">سوهاج</option>
+          <option value="جنوب سيناء">جنوب سيناء</option>
+          <option value="السويس">السويس</option>
+          <option value="الأقصر">الأقصر</option>
+          <option value="القاهرة">القاهرة</option>
+          <option value="الإسكندرية">الإسكندرية</option>
+          <option value="الفيوم">الفيوم</option>
+          <option value="أسوان">أسوان</option>
+          <option value="أسيوط">أسيوط</option>
+          <option value="البحيرة">البحيرة</option>
+          <option value="بني سويف">بني سويف</option>
+          <option value="الدقهلية">الدقهلية</option>
+          <option value="دمياط">دمياط</option>
+        </select>
+      </div>
+      <!--end  client data  -->
+      <!--start  order data  -->
+
+      <div class="form-group col-md-6 font-weight-bold">
+        <label for="productID">كود المنتج</label>
+        <input
+          ngForm
+          name="productID"
+          type="text"
+          class="form-control"
+          required
+          id="productID"
+        />
+      </div>
+      <hr />
+      <div class="form-group col-md-6 font-weight-bold">
+        <label for="productCost">سعر المنتج</label>
+        <input
+          required
+          ngForm
+          name="productCost"
+          type="number"
+          class="form-control"
+          id="productCost"
+        />
+      </div>
+
+      <div class="form-group col-md-6 font-weight-bold">
+        <label for="deliveryCost">تكلفة التوصيل</label>
+        <input
+          ngForm
+          required
+          type="number"
+          class="form-control"
+          id="deliveryCost"
+          name="deliveryCost"
+        />
+      </div>
+      <div class="form-group col-md-6 font-weight-bold">
+        <label for="delivery-man">مسؤول التوصيل</label>
+        <select
+          name="delivery-man"
+          required
+          id="delivery-man"
+          class="form-control"
+        >
+          <option value="false" selected>لا تحدد المسؤول الآن</option>
+          <option
+            *ngFor="let deliveryMan of deliveryMen"
+            [value]="deliveryMan.id"
+          >
+            {{ deliveryMan.name }}
+          </option>
+        </select>
+      </div>
     </div>
-     <!--end  client data  -->
-     <!--start  order data  -->
+    <!--end  order data  -->
 
-    <div class="form-group col-md-6 font-weight-bold">
-      <label for="item">Item name</label>
-      <input type="text" class="form-control" required id="item">
-    </div>
-    <hr>
-    <div class="form-group col-md-6 font-weight-bold">
-      <label for="itemCost">Item cost</label>
-      <input type="text" class="form-control" id="itemCost">
-    </div>
-    <div class="form-group col-md-6 "></div>
-    <div class="form-group col-md-6 font-weight-bold">
-      <label for="deliveryCost">delivery cost</label>
-      <input type="text" class="form-control" id="deliveryCost">
-    </div>
-
-  </div>
-     <!--end  order data  -->
-
-
-
-  <button type="submit" class="btn btn-primary float-right">Sign in</button>
-</form>
+    <button type="submit" class="btn btn-primary float-right">أضف الطلب</button>
+  </form>
 </div>
