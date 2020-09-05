@@ -26,6 +26,7 @@ import { OrderSearchComponent } from './home-page/order-search/order-search.comp
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ItemsContainerComponent } from './stock/items-container/items-container.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 
 
@@ -50,6 +51,7 @@ import { ItemsContainerComponent } from './stock/items-container/items-container
     EmployeeProfileComponent,
     AddEmployeeComponent,
     ItemsContainerComponent,
+    SpinnerComponent,
 
   ],
   imports: [

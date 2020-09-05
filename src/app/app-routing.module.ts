@@ -9,6 +9,7 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
 import { OrderComponent } from './orders/order/order.component';
 
 const routes: Routes = [
+
   { path: '', component: HomePageComponent },
   { path: 'home', component: HomePageComponent },
   { path: 'employees/:job', component: EmployeesComponent },

@@ -20,14 +20,20 @@ export class GatewayService {
 
   API_DOMAIN = 'https://awfarlak-dashboard.firebaseio.com';
 
-  API_END_POINTS = {
-    order: 'orders',
-    employee: 'employees',
-    deliveryMan: 'delivery-men',
-    fbAdmin: 'facebook-admins',
-    sysAdmin: 'system-admins'
-  };
 
+
+  // TODO move this function to employees service
+  getAPI_END_POINT(END_POINT_REF: string, ...rest: string[]): string {
+    // function that returns the final api-end-point
+    const API_END_POINTS = {
+      order: 'orders',
+      employee: 'employees',
+      deliveryMan: 'delivery-men',
+      fbAdmin: 'facebook-admins',
+      sysAdmin: 'system-admins'
+    };
+    return API_END_POINTS[END_POINT_REF];
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -36,7 +42,7 @@ export class GatewayService {
     END_POINT_REF: 'order' | 'employee' | 'deliveryMan' | 'sysAdmin' | 'fbAdmin'
   ): Observable<any> {
 
-    return this.http.post<{ name: string }>(`${this.API_DOMAIN}/${this.API_END_POINTS[END_POINT_REF]}.json`, data);
+    return this.http.post<{ name: string }>(`${this.API_DOMAIN}/${this.getAPI_END_POINT(END_POINT_REF)}.json`, data);
 
   }
 
@@ -45,7 +51,7 @@ export class GatewayService {
     END_POINT_REF: 'order' | 'employee' | 'deliveryMan' | 'sysAdmin' | 'fbAdmin'
   ): Observable<any> {
 
-    return this.http.put<any>(`${this.API_DOMAIN}/${this.API_END_POINTS[END_POINT_REF]}.json`, data);
+    return this.http.put<any>(`${this.API_DOMAIN}/${this.getAPI_END_POINT(END_POINT_REF)}.json`, data);
 
   }
 
@@ -53,7 +59,7 @@ export class GatewayService {
 
   getAll(END_POINT_REF: 'order' | 'employee' | 'deliveryMan' | 'sysAdmin' | 'fbAdmin'): Observable<any> {
 
-    return this.http.get<{ [key: string]: Order }>(`${this.API_DOMAIN}/${this.API_END_POINTS[END_POINT_REF]}.json`).pipe(
+    return this.http.get<{ [key: string]: Order }>(`${this.API_DOMAIN}/${this.getAPI_END_POINT(END_POINT_REF)}.json`).pipe(
       map((ordersStream) => {
 
         // console.log(ordersStream);
@@ -79,7 +85,7 @@ export class GatewayService {
   }
 
   deleteByID(orderID: string, END_POINT_REF: 'order' | 'employee' | 'deliveryMan' | 'sysAdmin' | 'fbAdmin'): Observable<any> {
-    return this.http.delete(`${this.API_DOMAIN}/${this.API_END_POINTS[END_POINT_REF]}/${orderID}.json`);
+    return this.http.delete(`${this.API_DOMAIN}/${this.getAPI_END_POINT(END_POINT_REF)}/${orderID}.json`);
   }
 
 

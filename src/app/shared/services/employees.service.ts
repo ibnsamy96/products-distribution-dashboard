@@ -110,5 +110,27 @@ export class EmployeesService {
   }
 
 
+  getDeliveryMen(): any[] {
+
+    this.gatewayService.getAll('employee').subscribe(
+      data => {
+        console.log('good');
+        console.log(data);
+
+        return data;
+      }, error => {
+        console.log(error);
+        alert('Error, look at console.');
+      }
+
+
+    );
+
+    return [];
+
+  }
+
+
+
 
 }

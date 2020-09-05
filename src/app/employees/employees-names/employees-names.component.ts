@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { EmployeesService } from '../../shared/services/employees.service';
 
 @Component({
   selector: 'app-employees-names',
@@ -8,9 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EmployeesNamesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private employeesService: EmployeesService) { }
 
   ngOnInit(): void {
+    console.log(this.employeesService.getDeliveryMen());
   }
 
 }
