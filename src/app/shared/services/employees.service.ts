@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 import { GatewayService } from './gateway.service';
-import { Employee } from "../models/employee.model";
-import { FacebookAdmin } from "../models/facebook-admin.model";
-import { DeliveryMan } from "../models/delivery-man.model";
+import { Employee } from '../models/employee.model';
+import { FacebookAdmin } from '../models/facebook-admin.model';
+import { DeliveryMan } from '../models/delivery-man.model';
+
+
+interface FormattedEmployee {
+  [x: string]: { name: string, phoneNumber: number };
+}
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class EmployeesService {
 
   constructor(private gatewayService: GatewayService) { }
 
   signUpForEmployee(employeeCredentials: { email: string, password: string }): void {
     // signUp for him
+    console.log(employeeCredentials);
+
   }
 
   postNewEmployee(employee: Employee): void {
@@ -21,12 +29,11 @@ export class EmployeesService {
     // TODO after signing up let postNew happens only in subscribe
     this.signUpForEmployee({ email: employee.email, password: employee.password });
 
-    this.gatewayService.postNew(employee, 'employees').subscribe(data => {
+    this.gatewayService.postNew(employee, 'employee').subscribe(data => {
+      console.log('send to employees gateway');
       console.log(data);
-
-      this.formatNewDeliveryMan(employee, data.name);
-
-      alert('Done, order ID is ' + data.name);
+      // data = {name :'unique employee ID'}
+      this.addEmployeeByRole(employee, data.name);
     }, error => {
       console.log(error);
       alert('Error, look at console.');
@@ -34,30 +41,73 @@ export class EmployeesService {
 
   }
 
-  formatNewDeliveryMan(employee: Employee, employeeID: string): void {
+  addEmployeeByRole(employee: Employee, employeeID: string): void {
 
-    const deliveryMan: DeliveryMan = {
-      id: employeeID,
-      name: employee.name,
-      phoneNumber: employee.phoneNumber,
+    // function to format employee and add him to his role database
+    const formattedEmployee: FormattedEmployee = {
+      [employeeID]: {
+        name: employee.name,
+        phoneNumber: employee.phoneNumber,
+      }
+
     };
 
-    this.postNewDeliveryMan(deliveryMan);
+    switch (employee.role) {
+      case 'delivery-man':
+        this.putNewDeliveryMan(formattedEmployee);
+        break;
+      case 'facebook-admin':
+        this.putNewFacebookAdmin(formattedEmployee);
+        break;
+
+      case 'system-admin':
+        this.putNewSystemAdmin(formattedEmployee);
+        break;
+
+      default:
+        break;
+    }
+
+
 
   }
 
 
-  postNewDeliveryMan(deliveryMan: DeliveryMan): void {
-    this.gatewayService.postNew(deliveryMan, 'deliveryMan').subscribe(data => {
-      console.log(data);
-      alert('Done, order ID is ' + data.name);
-    }, error => {
-      console.log(error);
-      alert('Error, look at console.');
-    });
+  putNewDeliveryMan(formattedEmployee: FormattedEmployee): void {
+    this.gatewayService.putNew(formattedEmployee, 'deliveryMan').subscribe(
+      (data: DeliveryMan) => {
+        console.log('send to deliveryMan gateway');
+        console.log(data);
+        alert('Error, look at console.');
+      }, error => {
+        console.log(error);
+        alert('Error, look at console.');
+      });
   }
 
+  putNewFacebookAdmin(formattedEmployee: FormattedEmployee): void {
+    this.gatewayService.putNew(formattedEmployee, 'fbAdmin').subscribe(
+      (data: DeliveryMan) => {
+        console.log('send to deliveryMan gateway');
+        console.log(data);
+        alert('Error, look at console.');
+      }, error => {
+        console.log(error);
+        alert('Error, look at console.');
+      });
+  }
 
+  putNewSystemAdmin(formattedEmployee: FormattedEmployee): void {
+    this.gatewayService.putNew(formattedEmployee, 'sysAdmin').subscribe(
+      (data: DeliveryMan) => {
+        console.log('send to deliveryMan gateway');
+        console.log(data);
+        alert('Error, look at console.');
+      }, error => {
+        console.log(error);
+        alert('Error, look at console.');
+      });
+  }
 
 
 

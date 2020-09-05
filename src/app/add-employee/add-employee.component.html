@@ -2,74 +2,98 @@
   <div class="container">
     <div class="add-role">
       <h2 class="mt-5 mb--3">إضافة مستخدم</h2>
-      <form>
+      <form (ngSubmit)="addEmployee(newEmployeeForm)" #newEmployeeForm="ngForm">
         <div class="form-group mt-5">
-          <label for="exampleInputEmail1">اسم المستخدم</label>
+          <label for="name">اسم الموظّف</label>
           <input
-            type="email"
+            ngModel
+            type="text"
             class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="اسم المستخدم"
+            id="name"
+            name="name"
+            aria-describedby="name"
+            placeholder="اسم الموظّف"
           />
         </div>
 
         <div class="form-group mt-3">
-          <label for="exampleInputPassword1">رقم الموبيل</label>
+          <label for="mobile">رقم الموبيل</label>
           <input
-            type="password"
+            ngModel
+            type="number"
+            name="mobile"
             class="form-control"
-            id="exampleInputPassword1"
+            id="mobile"
             placeholder="رقم الموبيل"
           />
         </div>
 
-        <div class="form-group mt-3">
-          <label for="exampleInputPassword1">كلمة المرور</label>
+        <div class="form-group mt-5">
+          <label for="email">إيميل الموظّف</label>
           <input
+            ngModel
+            type="email"
+            class="form-control"
+            name="email"
+            id="email"
+            aria-describedby="email"
+            placeholder="إيميل الموظّف"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="password">كلمة المرور</label>
+          <input
+            ngModel
             type="password"
             class="form-control"
-            id="exampleInputPassword1"
+            name="password"
+            id="password"
             placeholder="كلمة المرور"
           />
         </div>
 
         <div class="form-check">
           <input
+            ngModel
             class="form-check-input"
             type="radio"
             name="job"
-            id="delivery"
-            value="option1"
+            id="delivery-man"
+            value="delivery-man"
           />
-          <label class="form-check-label mr-4" for="delivery">
+          <label class="form-check-label mr-4" for="delivery-man">
             مسؤول توصيل
           </label>
         </div>
         <div class="form-check">
           <input
+            ngModel
             class="form-check-input"
             type="radio"
             name="job"
-            id="facebook"
-            value="option2"
+            id="facebook-admin"
+            value="facebook-admin"
           />
-          <label class="form-check-label mr-4" for="facebook">
+          <label class="form-check-label mr-4" for="facebook-admin">
             أدمن صفحة الفيسبوك
           </label>
         </div>
         <div class="form-check">
           <input
+            ngModel
             class="form-check-input"
             type="radio"
             name="job"
-            id="accountant"
-            value="option3"
+            id="system-admin"
+            value="system-admin"
           />
-          <label class="form-check-label mr-4" for="accountant"> محاسب </label>
+          <label class="form-check-label mr-4" for="system-admin">
+            مدير للنظام
+          </label>
         </div>
-        <button type="submit" class="btn btn-primary mb-2">
-          إضافة المستخدم
+        <button type="submit" class="btn btn-primary mt-2">
+          إضافة الموظّف
         </button>
       </form>
     </div>
