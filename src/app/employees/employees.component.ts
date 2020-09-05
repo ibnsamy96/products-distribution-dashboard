@@ -13,10 +13,10 @@ export class EmployeesComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.jobType= this.route.snapshot.params['job'];
+    this.jobType = this.route.snapshot.params.job;
     this.route.params.subscribe(
-      (params:Params)=>{
-        this.jobType=params["job"]
+      (params: Params) => {
+        this.jobType = params.job;
       }
 
     );

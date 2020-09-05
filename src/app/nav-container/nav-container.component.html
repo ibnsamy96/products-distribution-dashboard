@@ -75,9 +75,9 @@
     </form>
   </div>
 </nav> -->
-<nav class="navbar navbar-expand-lg navbar-light bg-dark  navbar-right p-0">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark navbar-right p-0">
   <!--bg-color-custom -->
-  <a class="navbar-brand text-center ml--3 p-0 " href="#"
+  <a class="navbar-brand text-center ml--3 p-0" href="#"
     ><img id="logo" src="./assets/images/index.jpg"
   /></a>
   <button
@@ -91,20 +91,38 @@
   >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class=" collapse navbar-collapse a" id="navbarNavAltMarkup">
-    <div class="navbar-nav  rtl mr-4">
-      <a class="nav-link active text-white1" href="#" routerLink="home"><i class="fas fa-home fa-lg mr-1"></i> <span
-          class="sr-only">(current)</span></a>
-      <a class="nav-link text-white1" href="#" [routerLink]="['employees/delivery']">delivery<i class="fas fa-truck mr-2"></i> </a>
-      <a class="nav-link text-white1" href="#" [routerLink]="['employees/facebookAdmins']">facebook admins<i class="fab fa-facebook mr-2"></i> </a>
-      <a class="nav-link text-white1" href="#" routerLink="addEmployee">اضافه موظف<i class="fas fa-users-cog mr-2"></i> </a>
-      <a class="nav-link text-white1" href="#" [routerLink]="['profile/jobType',id]">الملف الشخصي<i class="fas fa-user mr-2"></i> </a>
+  <div class="collapse navbar-collapse a" id="navbarNavAltMarkup">
+    <div class="navbar-nav rtl mr-4">
+      <a class="nav-link active text-white1" href="#" routerLink="home">
+        <span class="sr-only">(current)</span>
+        <i class="fas fa-home fa-lg mr-1"></i>
+      </a>
+      <a
+        class="nav-link text-white1"
+        href="#"
+        [routerLink]="['employees/delivery-men']"
+        ><i class="fas fa-truck ml-2"></i>مسؤولي التوصيل
+      </a>
+      <a
+        class="nav-link text-white1"
+        href="#"
+        [routerLink]="['employees/facebook-admins']"
+        ><i class="fab fa-facebook ml-2"></i>أدمنز صفحة الفيسبوك
+      </a>
+      <a class="nav-link text-white1" href="#" routerLink="addEmployee"
+        ><i class="fas fa-users-cog ml-2"></i>إضافة موظف
+      </a>
+      <a
+        class="nav-link text-white1"
+        href="#"
+        [routerLink]="['profile/jobType', id]"
+        ><i class="fas fa-user ml-2"></i>الملف الشخصي
+      </a>
 
-      <a class="nav-link text-white1" href="#" routerLink="login">تسجيل خروج<i class="fas fa-sign-out-alt fa-flip-horizontal mr-2"></i> </a>
-
-
-
-
+      <a class="nav-link text-white1" href="#" routerLink="login">
+        <i class="fas fa-sign-out-alt fa-flip-horizontal ml-2"></i>
+        تسجيل خروج
+      </a>
     </div>
   </div>
 </nav>
