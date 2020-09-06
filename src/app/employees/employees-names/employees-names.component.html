@@ -1,11 +1,10 @@
 <div class="distrib-table">
   <div class="list-group table-dark">
-    <a href="#" class="list-group-item list-group-item-action ">
-    اسم الموزع
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">اسم الموزع </a>
-    <a href="#" class="list-group-item list-group-item-action">اسم الموزع </a>
-    <a href="#" class="list-group-item list-group-item-action">اسم الموزع </a>
-    <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">اسم الموزع </a>
+    <a
+      href="#"
+      *ngFor="let deliveryMan of deliveryMen"
+      class="list-group-item list-group-item-action"
+      >{{ deliveryMan.name }}</a
+    >
   </div>
 </div>
