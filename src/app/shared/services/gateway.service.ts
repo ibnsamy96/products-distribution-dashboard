@@ -21,45 +21,31 @@ export class GatewayService {
   API_DOMAIN = 'https://awfarlak-dashboard.firebaseio.com';
 
 
-
-  // TODO move this function to employees service
-  getAPI_END_POINT(END_POINT_REF: string, ...rest: string[]): string {
-    // function that returns the final api-end-point
-    const API_END_POINTS = {
-      order: 'orders',
-      employee: 'employees',
-      deliveryMan: 'delivery-men',
-      fbAdmin: 'facebook-admins',
-      sysAdmin: 'system-admins'
-    };
-    return API_END_POINTS[END_POINT_REF];
-  }
-
   constructor(private http: HttpClient) { }
 
   postNew(
     data: any,
-    END_POINT_REF: 'order' | 'employee' | 'deliveryMan' | 'sysAdmin' | 'fbAdmin'
+    API_END_POINT: string
   ): Observable<any> {
 
-    return this.http.post<{ name: string }>(`${this.API_DOMAIN}/${this.getAPI_END_POINT(END_POINT_REF)}.json`, data);
+    return this.http.post<{ name: string }>(`${this.API_DOMAIN}/${API_END_POINT}.json`, data);
 
   }
 
   putNew(
     data: any,
-    END_POINT_REF: 'order' | 'employee' | 'deliveryMan' | 'sysAdmin' | 'fbAdmin'
+    API_END_POINT: string
   ): Observable<any> {
 
-    return this.http.put<any>(`${this.API_DOMAIN}/${this.getAPI_END_POINT(END_POINT_REF)}.json`, data);
+    return this.http.put<any>(`${this.API_DOMAIN}/${API_END_POINT}.json`, data);
 
   }
 
 
 
-  getAll(END_POINT_REF: 'order' | 'employee' | 'deliveryMan' | 'sysAdmin' | 'fbAdmin'): Observable<any> {
+  getAll(API_END_POINT: string): Observable<any> {
 
-    return this.http.get<{ [key: string]: Order }>(`${this.API_DOMAIN}/${this.getAPI_END_POINT(END_POINT_REF)}.json`).pipe(
+    return this.http.get<{ [key: string]: Order }>(`${this.API_DOMAIN}/${API_END_POINT}.json`).pipe(
       map((ordersStream) => {
 
         // console.log(ordersStream);
@@ -73,19 +59,19 @@ export class GatewayService {
       }));
   }
 
-  getByID(orderID: string, END_POINT_REF: 'order' | 'employee' | 'deliveryMan' | 'sysAdmin' | 'fbAdmin'): Observable<any> {
+  getByID(orderID: string, API_END_POINT: string): Observable<any> {
     const orderAPI = 'https://barq-api.azurewebsites.net/api/orders/' + orderID;
     return this.http.get<Order>(orderAPI);
   }
 
 
-  updateByID(orderID: string, order: Order, END_POINT_REF: 'order' | 'employee' | 'deliveryMan' | 'sysAdmin' | 'fbAdmin'): Observable<any> {
+  updateByID(orderID: string, order: Order, API_END_POINT: string): Observable<any> {
     const orderAPI = 'https://barq-api.azurewebsites.net/api/orders/' + orderID;
     return this.http.put(orderAPI, order);
   }
 
-  deleteByID(orderID: string, END_POINT_REF: 'order' | 'employee' | 'deliveryMan' | 'sysAdmin' | 'fbAdmin'): Observable<any> {
-    return this.http.delete(`${this.API_DOMAIN}/${this.getAPI_END_POINT(END_POINT_REF)}/${orderID}.json`);
+  deleteByID(orderID: string, API_END_POINT: string): Observable<any> {
+    return this.http.delete(`${this.API_DOMAIN}/${API_END_POINT}/${orderID}.json`);
   }
 
 
