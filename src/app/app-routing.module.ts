@@ -7,10 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { AddOrderComponent } from './orders/add-order/add-order.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { OrderComponent } from './orders/order/order.component';
+import { StockComponent } from './stock/stock.component';
 
 const routes: Routes = [
 
   { path: '', component: HomePageComponent },
+  { path: 'stock', component: StockComponent },
+
   { path: 'home', component: HomePageComponent },
   { path: 'employees/:job', component: EmployeesComponent },
   { path: 'addEmployee', component: AddEmployeeComponent },
