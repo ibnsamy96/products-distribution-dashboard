@@ -27,6 +27,7 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ItemsContainerComponent } from './stock/items-container/items-container.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { NotFfoundComponent } from './not-ffound/not-ffound.component';
 
 
 
@@ -52,6 +53,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     AddEmployeeComponent,
     ItemsContainerComponent,
     SpinnerComponent,
+    NotFfoundComponent,
 
   ],
   imports: [

@@ -8,6 +8,7 @@ import { AddOrderComponent } from './orders/add-order/add-order.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { OrderComponent } from './orders/order/order.component';
 import { StockComponent } from './stock/stock.component';
+import { NotFfoundComponent } from './not-ffound/not-ffound.component';
 
 const routes: Routes = [
 
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'addOrder', component: AddOrderComponent },
   { path: 'profile/:jobType/:employeeId', component: EmployeeProfileComponent },
   { path: 'order/:orderId', component: OrderComponent },
-  { path: '**', component: HomePageComponent }
+  { path: '**', component: NotFfoundComponent }
 
 
 
