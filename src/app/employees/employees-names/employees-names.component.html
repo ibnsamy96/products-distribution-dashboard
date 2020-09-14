@@ -1,5 +1,5 @@
 <div class="distrib-table">
-  <div class="list-group table-dark">
+  <div *ngIf="deliveryMen.length>0;else noEmployees" class="list-group table-dark">
 
     <div *ngFor="let deliveryMan of deliveryMen">
       <!-- routerLink="/details" -->
@@ -9,4 +9,7 @@
       class="list-group-item list-group-item-action text-primary"
       >{{ deliveryMan.name }} <i  (click)="removeEmployee(deliveryMan.name)" class="fas fa-times text-primary float-left" ></i></a>
   </div></div>
+  <ng-template #noEmployees>
+    <span class="list-group-item list-group-item-action text-danger text-center font-weight-700"> لا يوجد موظفين للعرض</span>
+  </ng-template>
 </div>
