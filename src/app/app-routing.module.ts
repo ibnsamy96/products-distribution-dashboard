@@ -9,11 +9,15 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
 import { OrderComponent } from './orders/order/order.component';
 import { StockComponent } from './stock/stock.component';
 import { NotFfoundComponent } from './not-ffound/not-ffound.component';
+import { EmployeeDetailsComponent } from './employees/employee-details/employee-details.component';
 
 const routes: Routes = [
 
   { path: '', component: HomePageComponent },
   { path: 'stock', component: StockComponent },
+  // { path: 'details', component: EmployeeDetailsComponent },
+  // TODO we need to change this part to show employee details
+
 
   { path: 'home', component: HomePageComponent },
   { path: 'employees/:job', component: EmployeesComponent },

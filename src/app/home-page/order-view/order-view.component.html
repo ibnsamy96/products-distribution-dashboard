@@ -12,10 +12,10 @@
                         <p class="card-text mt--3">سعر المنتج</p>
                         </div>
                         <p class="card-text" style="display: inline;"> حالة المنتج</p>
-                        <span class="badge badge-primary mr-1">قيد التوصيل</span>
-                        <span class="badge badge-success mr-1">سُلم</span>
-                        <span class="badge badge-danger mr-1">راجع</span>
-                        <span class="badge badge-info mr-1">آجل</span>
+                        <span class="badge badge-primary mr-1" (click)="setState(span)" #span>قيد التوصيل</span>
+                        <span class="badge badge-success mr-1" (click)="setState(span)" #span>سُلم</span>
+                        <span class="badge badge-danger mr-1" (click)="setState(span)" #span>راجع</span>
+                        <span class="badge badge-info mr-1"(click)="setState(span)" #span>آجل</span>
                         <p class="card-text">اسم الموزع</p>
                         <div class="input-group mb-3">
                           <div class="input-group">
